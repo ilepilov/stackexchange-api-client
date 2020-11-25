@@ -43,8 +43,8 @@ public class UserRepoCustomImpl implements UserRepoCustom {
       query.addCriteria(new Criteria().andOperator(criteria.toArray(new Criteria[criteria.size()])));
     }
 
-    List<User> users = mongoTemplate.find(query, User.class);
-    return PageableExecutionUtils.getPage(users, pageable,
-      () -> mongoTemplate.count(Query.of(query).limit(-1).skip(-1), User.class));
+    long count = mongoTemplate.count(query, User.class);
+    List<User> users = mongoTemplate.find(query.with(pageable), User.class);
+    return PageableExecutionUtils.getPage(users, pageable, () -> count);
   }
 }
