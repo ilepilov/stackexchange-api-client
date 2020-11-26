@@ -28,7 +28,6 @@ This is an attempt to build a StackExchange API client.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Java 11](https://openjdk.java.net/projects/jdk/11/)
 * [Gradle](https://gradle.org/)
 * [Spring](https://spring.io/)
