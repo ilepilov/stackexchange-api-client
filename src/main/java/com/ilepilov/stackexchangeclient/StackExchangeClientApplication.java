@@ -34,13 +34,13 @@ public class StackExchangeClientApplication implements CommandLineRunner {
   public void run(String... args) {
     Scanner scanner = new Scanner(System.in);
     int page = 0;
-    int size = 10;
+    int size = 5;
 
     while (true) {
       System.out.println("-------------------------------------------------------------------------------------------");
       PageRequest pageRequest = PageRequest.of(page, size);
       UserRequestParams userRequestParams = new UserRequestParams();
-      userRequestParams.setLocationRegex(".*(United States|Germany|Israel|United Kingdom).*");
+      userRequestParams.setLocationRegex(".*(United States|Germany|United Kingdom).*");
       userRequestParams.setTagsRegex("(windows|linux)");
 
       Page<User> users = apiClient.getUsers(userRequestParams, pageRequest);
