@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
+    compile.exclude module: 'spring-boot-starter-logging'
     compileOnly {
         extendsFrom annotationProcessor
     }

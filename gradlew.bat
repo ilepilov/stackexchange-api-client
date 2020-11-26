@@ -43,7 +43,7 @@ set JAVA_EXE=java.exe
 if "%ERRORLEVEL%" == "0" goto execute
 
 echo.
-echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your Query.
+echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 echo.
 echo Please set the JAVA_HOME variable in your environment to match the
 echo location of your Java installation.
@@ -67,11 +67,11 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSQuery=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
 
 
 @rem Execute Gradle
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classQuery "%CLASSQuery%" org.gradle.wrapper.GradleWrapperMain %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
 
 :end
 @rem End local scope for the variables with windows NT shell
