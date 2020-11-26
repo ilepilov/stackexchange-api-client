@@ -32,11 +32,8 @@ public class RetrofitConfiguration {
 
   @Bean
   public OkHttpClient client() {
-    InetSocketAddress proxyAddr = new InetSocketAddress("127.0.0.1", 9080);
-    Proxy proxyTor = new Proxy(Proxy.Type.HTTP, proxyAddr);
     return new OkHttpClient.Builder()
       .connectTimeout(30, TimeUnit.SECONDS)
-      .proxy(proxyTor)
       .readTimeout(120, TimeUnit.SECONDS)
       .build();
   }
